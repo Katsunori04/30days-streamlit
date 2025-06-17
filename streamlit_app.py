@@ -87,3 +87,46 @@ start_time = st.slider(
     format="MM/DD/YY - hh:mm",
 )
 st.write("Start time:", start_time)
+
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=["a", "b", "c"],
+)
+
+st.header("Day 9")
+st.write("st.line_chart")
+st.line_chart(chart_data)
+
+st.header("Day 10")
+st.header("st.selectbox")
+
+option = st.selectbox("What is your favorite color?", ["Red", "Green", "Blue"])
+st.write("Your favorite color is", option)
+
+st.header("Day 11")
+st.header("st.multiselect")
+
+optinos = st.multiselect(
+    "What are your favorite colors?",
+    ["Green", "Yellow", "Red", "Blue", "Purple"],
+    ["Yellow", "Red"],
+)
+
+st.write("Your favorite colors are:", optinos)
+print(optinos)
+
+st.header("Day 12")
+st.write("Wthat would you like to order?")
+
+icecream = st.checkbox("Ice cream")
+coffee = st.checkbox("Coffee")
+cola = st.checkbox("Cola")
+
+if icecream:
+    st.write("Great! Here's some more ??")
+
+if coffee:
+    st.write("Okay! Here's some coffee ?")
+
+if cola:
+    st.write("Here you go??")
