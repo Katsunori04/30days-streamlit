@@ -2,6 +2,17 @@ import numpy as np
 import altair as alt
 import pandas as pd
 import streamlit as st
+from ydata_profiling import ProfileReport
+from streamlit.components.v1 import html
+
+# streamlitで日本語
+st.set_page_config(
+    page_title="30DaysOfStreamlit",
+    page_icon=":shark:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 
 st.title("30DaysOfStreamlit")
 
@@ -113,7 +124,6 @@ optinos = st.multiselect(
 )
 
 st.write("Your favorite colors are:", optinos)
-print(optinos)
 
 st.header("Day 12")
 st.write("Wthat would you like to order?")
@@ -130,3 +140,42 @@ if coffee:
 
 if cola:
     st.write("Here you go??")
+
+# day 14
+st.header("Day 14")
+st.write("streamlit-components")
+st.write("streamlit_pandas_profiling")
+
+st.code(
+    r"""
+    df = pd.read_csv(
+        "https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv"
+    )
+
+    # プロファイルレポートを生成
+    profile = ProfileReport(df, explorative=True)
+
+    # HTMLとして出力
+    profile_html = profile.to_html()
+
+    # Streamlitで表示
+    st.header("Pandas Profiling Report")
+    html(profile_html, height=1000, scrolling=True)
+    """,
+    language="python",
+)
+
+# day 15
+st.header("Day 15")
+st.subheader("st.latex")
+st.latex(
+    r"""
+    a^2 + b^2 = c^2
+"""
+)
+
+# day16
+st.header("Day 16")
+st.subheader("st.secrets")
+
+st.write(st.secrets["message"])
