@@ -1,15 +1,20 @@
+# streamlit 30days - stremlit_app.py
+# top page for the 30 Days of Streamlit challenge
 import streamlit as st
-import time
 
-st.title("st.progress")
+# streamlitで日本語
+st.set_page_config(
+    page_title="30DaysOfStreamlit",
+    page_icon=":shark:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
-with st.expander("About this app"):
-    st.write("You can now display the progress of your calculation")
+st.title("30 Days of Streamlit")
 
-    my_bar = st.progress(0)
-
-for percent_complete in range(100):
-    time.sleep(0.05)  # Simulate a long computation
-    my_bar.progress(percent_complete + 1)
-
-st.balloons()
+st.markdown(
+    """
+    30 Days of Streamlitのまとめページです。  
+    サイドバーのマルチリンクから、詳細な内容を確認できます。
+    """
+)

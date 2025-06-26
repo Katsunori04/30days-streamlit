@@ -10,6 +10,9 @@ package-mode = false
 python = ">=3.10,<3.13"
 streamlit = "^1.33.0"
 ydata-profiling = "^4.16.1"
+streamlit-elements = "==0.1.*"
+streamlit-shap = "^1.0.2"
+xgboost = "^3.0.2"
 
 
 [build-system]
